@@ -227,8 +227,8 @@ confidence = 85-100% based on signal quality
 ## 📞 Contact & Sales
 
 **Founder/CEO:** Davon Brown  
-**Email:** [your-email@chaostech.io]  
-**Phone:** [your-phone]  
+**Email:** DaivonBrown@ChaosTechDefenseLLC.com  
+**Phone:** (202) 830-6292  
 **Company:** ChaosTech Defense LLC  
 **Location:** Camp Springs, Maryland
 
