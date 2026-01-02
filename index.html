@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ChaosTech NSD Field Grid Prototype v4.0</title>
+  <link rel="stylesheet" href="styles.css" />
+  <!-- Three.js CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@r128/examples/js/controls/OrbitControls.js"></script>
+</head>
+<body>
+  <header role="banner">
+    <h1>ChaosTech NSD Field Grid Prototype</h1>
+    <aside id="about" aria-label="Prototype information">
+      Neural Swarm Disruptor simulation: AI-powered counter-UAS threat assessment and mitigation
+      over a rectangular base defense grid with allied and hostile drones.
+    </aside>
+  </header>
+
+
+  <main role="main">
+    <section class="field-section" aria-label="Main battlespace visualization">
+      <div class="radar-container">
+        <canvas 
+          id="mainRadar" 
+          width="1200" 
+          height="800"
+          role="img" 
+          aria-label="Primary battlespace view - toggle 2D/3D below">
+        </canvas>
+        
+        <!-- Status Overlay -->
+        <div class="radar-overlay">
+          <div id="threatCount" class="threat-badge">Threats: 0</div>
+          <div id="jamCount" class="jam-badge">Jammed: 0</div>
+        </div>
+      </div>
+
+
+      <aside
+        class="side-panel"
+        role="complementary"
+        aria-label="Controls, legend, and editors"
+      >
+        <!-- 3D View Toggle Button -->
+        <button id="toggleView" 
+                style="width: 100%; padding: 0.6rem; background: #00ff88 !important; color: #000 !important; font-weight: bold; margin-bottom: 0.75rem; border-radius: 4px; border: none; cursor: pointer;">
+          🛰️ 3D View
+        </button>
+
+
+        <nav class="controls" aria-label="Simulation controls">
+          <button id="calmBtn" aria-label="Load calm airspace scenario">Calm airspace</button>
+          <button id="attackBtn" aria-label="Load attack run scenario">Attack run</button>
+          <button id="pauseBtn" aria-label="Pause or resume simulation">Pause</button>
+          <button id="resetBtn" aria-label="Reset simulation to initial state">🔄 Reset</button>
+          <button id="jamBtn" aria-label="Jam all hostile drones at once">Jam all drones</button>
+          <span
+            id="disruptModeLabel"
+            aria-live="polite"
+            aria-label="Current disruption mode, click to change"
+          >
+            Mode: Land in place
+          </span>
+        </nav>
+
+
+        <section
+          id="scenarioEditor"
+          class="scenario-editor"
+          aria-label="Custom drone editor"
+        >
+          <h2>Custom drone</h2>
+          <label>
+            Name:
+            <input id="seName" type="text" value="Custom 1" />
+          </label>
+          <label>
+            X (0–100):
+            <input id="seX" type="number" min="0" max="100" value="10" />
+          </label>
+          <label>
+            Y (0–100):
+            <input id="seY" type="number" min="0" max="100" value="10" />
+          </label>
+          <label>
+            Speed (1–30):
+            <input id="seSpeed" type="number" min="1" max="30" value="12" />
+          </label>
+          <label>
+            Heading (0–359):
+            <input id="seHeading" type="number" min="0" max="359" value="45" />
+          </label>
+          <label>
+            RF (0–100):
+            <input id="seRF" type="number" min="0" max="100" value="80" />
+          </label>
+          <button id="seAddBtn" aria-label="Add custom hostile drone to current scenario">
+            Add custom drone
+          </button>
+          <div id="seNote" class="scenario-note" aria-live="polite"></div>
+        </section>
+
+
+        <section
+          id="allyEditor"
+          class="scenario-editor"
+          aria-label="Allied and US drone editor"
+        >
+          <h2>Allied / US drones</h2>
+          <label>
+            Name:
+            <input id="allyName" type="text" value="US MQ-9" />
+          </label>
+          <label>
+            X (0–100):
+            <input id="allyX" type="number" min="0" max="100" value="30" />
+          </label>
+          <label>
+            Y (0–100):
+            <input id="allyY" type="number" min="0" max="100" value="30" />
+          </label>
+          <label>
+            Speed (1–30):
+            <input id="allySpeed" type="number" min="1" max="30" value="10" />
+          </label>
+          <label>
+            Heading (0–359):
+            <input id="allyHeading" type="number" min="0" max="359" value="0" />
+          </label>
+          <button id="allyAddBtn" aria-label="Add allied or US military drone">
+            Add ally / US drone
+          </button>
+          <div id="allyNote" class="scenario-note" aria-live="polite"></div>
+        </section>
+
+
+        <section
+          id="infrastructureEditor"
+          class="scenario-editor"
+          aria-label="Infrastructure marker editor"
+        >
+          <h2>Infrastructure</h2>
+          <label>
+            Label:
+            <input id="infLabel" type="text" value="Site A" />
+          </label>
+          <label>
+            Type:
+            <select id="infType">
+              <option value="critical">Important site</option>
+              <option value="mobile">Mobile unit</option>
+              <option value="land">Land base</option>
+              <option value="sea">Sea base</option>
+            </select>
+          </label>
+          <label>
+            X (0–100):
+            <input id="infX" type="number" min="0" max="100" value="50" />
+          </label>
+          <label>
+            Y (0–100):
+            <input id="infY" type="number" min="0" max="100" value="50" />
+          </label>
+          <button id="infAddBtn" aria-label="Add infrastructure marker to field grid">
+            Add marker
+          </button>
+          <div id="infNote" class="scenario-note" aria-live="polite"></div>
+        </section>
+
+
+        <section
+          class="legend"
+          aria-label="Legend explaining threat, ally, and infrastructure symbols"
+        >
+          <h2>Legend</h2>
+          <div class="legend-item safe">
+            <span class="pattern-dot"></span> Safe hostile drone (0–30)
+          </div>
+          <div class="legend-item caution">
+            <span class="pattern-dash"></span> Caution (31–60)
+          </div>
+          <div class="legend-item threat">
+            <span class="pattern-cross"></span> Threat (61–80)
+          </div>
+          <div class="legend-item high-threat">
+            <span class="pattern-fill"></span> High Threat (81+)
+          </div>
+          <div class="legend-item jammed">
+            <span class="pattern-circle"></span> Jammed / Neutralized hostile
+          </div>
+          <div class="legend-item ally">
+            ● Allied drone
+          </div>
+          <div class="legend-item infra-critical">
+            ■ Critical infrastructure
+          </div>
+          <div class="legend-item infra-mobile">
+            ▲ Mobile unit
+          </div>
+          <div class="legend-item infra-land">
+            ⬛ Land base
+          </div>
+          <div class="legend-item infra-sea">
+            ◯ Sea base
+          </div>
+        </section>
+      </aside>
+    </section>
+
+
+    <section class="status-section" aria-label="AI status and weighting controls">
+      <div
+        id="statusBar"
+        class="status-bar"
+        aria-live="polite"
+        aria-label="Live simulation statistics"
+      >
+        Active: 0 | Jammed: 0 | Neutralized: 0
+      </div>
+
+
+      <div class="ai-controls">
+        <label>
+          AI Weights:
+          RF <input type="range" id="rfWeight" min="0" max="2" step="0.1" value="1" />
+          Center <input type="range" id="centerWeight" min="0" max="2" step="0.1" value="1" />
+          Speed <input type="range" id="speedWeight" min="0" max="2" step="0.1" value="1" />
+        </label>
+      </div>
+    </section>
+
+
+    <section
+      class="log-section"
+      role="complementary"
+      aria-label="Event log with filters"
+    >
+      <h2>
+        Event Log
+        <span class="log-controls">
+          <select id="logFilter" aria-label="Filter log entries">
+            <option value="all">All</option>
+            <option value="threat">Threats</option>
+            <option value="jam">Jams</option>
+            <option value="neutralized">Neutralized</option>
+            <option value="infra">Infrastructure</option>
+          </select>
+          <button id="clearLog" aria-label="Clear event log">Clear</button>
+        </span>
+      </h2>
+      <div
+        id="log"
+        class="event-log"
+        role="log"
+        aria-live="polite"
+        aria-relevant="additions text"
+      ></div>
+    </section>
+  </main>
+
+
+  <!-- Scripts -->
+  <script src="ai_core.js"></script>
+  <script src="scenarios.js"></script>
+  <script src="radar_ui.js"></script>
+  <script src="3d_radar.js"></script>
+  <script src="ai_threat_assessment.js"></script>
+  <script src="chaostech_complete.js"></script>
+</body>
+</html>
+
+  <!-- ============================================================================ -->
+  <!-- SECTION: AI THREAT ASSESSMENT ENGINE (ChaosTech NSD Core) -->
+  <!-- ============================================================================ -->
+  <script>
+    /**
+     * ChaosTech NSD - AI Threat Assessment Module
+     * Calculates real-time threat scores for all detected drones
+     * Integrates with event logging and visualization
+     */
+
+    // ⭐ AI THREAT ASSESSMENT FUNCTION
+    function decideDroneStatus(drone) {
+      /**
+       * ChaosTech NSD - AI Threat Assessment Engine
+       * Calculates threat score (0-100) based on multiple threat vectors
+       * 
+       * Returns: { threat: boolean, score: 0-100, level: string, ... }
+       */
+      
+      const rf = drone.rfStrength || 0;
+      const speed = drone.speed || 0;
+      const x = drone.x || 50;
+      const y = drone.y || 50;
+      
+      // Calculate distance to base center
+      const distToBase = Math.sqrt(Math.pow(x - 50, 2) + Math.pow(y - 50, 2));
+      
+      // ⭐ RF SIGNAL ANALYSIS (40% weight)
+      let rfScore = 0;
+      if (rf > 85) rfScore = 40;        // Strong RF signature = HIGH threat
+      else if (rf > 70) rfScore = 30;   // Medium RF
+      else if (rf > 50) rfScore = 15;   // Weak RF
+      else rfScore = 5;                 // Very weak RF
+      
+      // ⭐ SPEED ANALYSIS (25% weight)
+      let speedScore = 0;
+      if (speed > 25) speedScore = 25;  // Fast approaching = HIGH threat
+      else if (speed > 20) speedScore = 20;
+      else if (speed > 10) speedScore = 10;
+      else speedScore = 0;              // Slow/hovering = lower threat
+      
+      // ⭐ PROXIMITY ANALYSIS (20% weight)
+      let proximityScore = 0;
+      if (distToBase < 15) proximityScore = 20;   // TOO CLOSE! Critical threat
+      else if (distToBase < 30) proximityScore = 15;
+      else if (distToBase < 50) proximityScore = 8;
+      else proximityScore = 0;
+      
+      // ⭐ SWARM DETECTION (15% weight)
+      let swarmScore = 0;
+      if (typeof drones !== 'undefined' && drones.length > 3) {
+        // Multiple drones detected = coordinated swarm = HIGH threat
+        swarmScore = 15;
+      } else {
+        swarmScore = 0;
+      }
+      
+      // ⭐ TOTAL THREAT SCORE (0-100)
+      const totalScore = rfScore + speedScore + proximityScore + swarmScore;
+      
+      // ⭐ THREAT LEVEL CLASSIFICATION
+      let threatLevel = 'SAFE';
+      if (totalScore >= 81) threatLevel = 'CRITICAL';
+      else if (totalScore >= 61) threatLevel = 'HIGH';
+      else if (totalScore >= 31) threatLevel = 'MEDIUM';
+      else threatLevel = 'LOW';
+      
+      return {
+        score: Math.min(100, totalScore),
+        threat: totalScore > 50,
+        level: threatLevel,
+        rfScore,
+        speedScore,
+        proximityScore,
+        swarmScore,
+        distToBase: Math.round(distToBase)
+      };
+    }
+
+    // ⭐ LOG AI THREAT ASSESSMENT
+    function logAIThreatAssessment(drone, status) {
+      /**
+       * Log AI threat assessment to event log
+       * Shows drone's RF signature, distance, and calculated threat score
+       */
+      
+      const timestamp = new Date().toLocaleTimeString();
+      const threatEmoji = status.score >= 81 ? '🦟' : status.score >= 61 ? '🟠' : status.score >= 31 ? '🟡' : '🟢';
+      
+      const message = `${threatEmoji} AI THREAT: ${drone.name} (RF: ${drone.rfStrength}, Dist: ${status.distToBase}m, Score: ${status.score}/100, Level: ${status.level})`;
+      
+      addEventLog(message);
+    }
+
+    // ⭐ INTEGRATE AI ASSESSMENT WITH DRONE UPDATE LOOP
+    // Call this in your main animation loop for each drone
+    function assessAllDroneThreats() {
+      if (typeof drones === 'undefined') return;
+      
+      drones.forEach(drone => {
+        // Skip if drone is already neutralized or jammed
+        if (drone.mode === 'neutralized' || drone.mode === 'jammed') return;
+        
+        // Calculate threat status
+        const status = decideDroneStatus(drone);
+        
+        // Store status on drone for visualization
+        drone.threatStatus = status;
+        
+        // Only log if threat score is above 30 (reduces spam)
+        if (status.score >= 30 && !drone.lastThreatLogged) {
+          logAIThreatAssessment(drone, status);
+          drone.lastThreatLogged = true;
+        }
+      });
+    }
+
+    // ⭐ RUN THREAT ASSESSMENT EVERY 500ms
+    setInterval(() => {
+      assessAllDroneThreats();
+    }, 500);
+
+    console.log('✅ ChaosTech NSD - AI Threat Assessment Engine loaded!');
+    console.log('📊 Threat scoring active (RF, Speed, Proximity, Swarm detection)');
+  </script>
+</body>
+</html>
