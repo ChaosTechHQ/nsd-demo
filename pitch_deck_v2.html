@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ChaosTech NSD - Investor Pitch Deck v2.1</title>
+    <title>ChaosTech NSD - Investor Pitch Deck v2.2</title>
     <style>
         * {
             margin: 0;
@@ -47,11 +47,7 @@
             to { opacity: 1; }
         }
 
-        /* TITLE SLIDE */
-        .slide-title {
-            text-align: center;
-        }
-
+        .slide-title { text-align: center; }
         .slide-title h1 {
             font-size: 64px;
             font-weight: 700;
@@ -101,18 +97,6 @@
             margin-left: 20px;
         }
 
-        .slide-title .cta {
-            display: inline-block;
-            padding: 12px 32px;
-            background: #ff6b00;
-            color: #fff;
-            border-radius: 6px;
-            font-size: 14px;
-            font-weight: 600;
-            margin-top: 30px;
-        }
-
-        /* CONTENT SLIDES */
         .slide h2 {
             font-size: 44px;
             margin-bottom: 35px;
@@ -237,13 +221,6 @@
             font-size: 12px;
         }
 
-        .footnote {
-            font-size: 11px;
-            color: #888;
-            margin-top: 8px;
-            font-style: italic;
-        }
-
         .context-note {
             font-size: 13px;
             color: #aaa;
@@ -263,7 +240,29 @@
             color: #cbd5e1;
         }
 
-        /* CONTROLS */
+        .value-prop-box {
+            background: rgba(0, 255, 136, 0.08);
+            border: 2px solid #00ff88;
+            padding: 24px;
+            margin: 20px 0;
+            border-radius: 6px;
+        }
+
+        .value-prop-box h3 {
+            color: #00ff88;
+            margin-bottom: 12px;
+            font-size: 16px;
+            font-weight: 600;
+        }
+
+        .value-prop-box .sub-item {
+            color: #cbd5e1;
+            font-size: 14px;
+            margin: 8px 0;
+            margin-left: 20px;
+            line-height: 1.5;
+        }
+
         .controls {
             position: fixed;
             bottom: 25px;
@@ -320,14 +319,11 @@
             color: #666;
         }
 
-        .highlight {
-            color: #ff6b00;
-            font-weight: 600;
-        }
-
-        .success {
-            color: #00ff88;
-            font-weight: 600;
+        .footnote {
+            font-size: 11px;
+            color: #888;
+            margin-top: 8px;
+            font-style: italic;
         }
     </style>
 </head>
@@ -336,7 +332,7 @@
     <div class="hint">← → or Click to navigate</div>
 
     <div class="deck-container">
-        <!-- SLIDE 1: TITLE (REFINED - Slide 1) -->
+        <!-- SLIDE 1: TITLE -->
         <div class="slide slide-title active">
             <h1>ChaosTech NSD</h1>
             <div class="subtitle">Neuro Swarm Disruptor</div>
@@ -345,7 +341,7 @@
             <div class="section-box">
                 <div class="section-title">What's Different</div>
                 <div class="section-item">• Safety-first mitigation architecture with protected-band policies</div>
-                <div class="section-item">• Aligned with spectrum safety requirements and auditability expectations for U.S. defense acquisition</div>
+                <div class="section-item">• Structured with spectrum safety and auditability for U.S. defense acquisition</div>
                 <div class="section-item">• Evidence artifacts generated automatically for government review</div>
             </div>
 
@@ -361,7 +357,6 @@
                 Seed Round: $500K–$1M<br>
                 CTA: Live Demo + Evidence Walkthrough
             </div>
-            <div class="cta">👉 LIVE DEMO AVAILABLE</div>
         </div>
 
         <!-- SLIDE 2: PROBLEM -->
@@ -401,15 +396,15 @@
                 <div class="grid-3">
                     <div class="feature-box">
                         <h3>🚁 Detect</h3>
-                        <p>Real-time multi-drone swarm detection with weighted threat assessment (RF + speed + proximity)</p>
+                        <p>Real-time multi-drone swarm detection with weighted threat assessment</p>
                     </div>
                     <div class="feature-box">
                         <h3>⚡ Mitigate</h3>
-                        <p>Selective mitigation with protected-band enforcement and collateral assessment built in</p>
+                        <p>Selective mitigation with protected-band enforcement and collateral assessment</p>
                     </div>
                     <div class="feature-box">
                         <h3>🔍 Attribute</h3>
-                        <p>Operator location estimation with confidence scoring for law enforcement action</p>
+                        <p>Operator location estimation with confidence scoring for law enforcement</p>
                     </div>
                 </div>
 
@@ -418,12 +413,12 @@
                     <div class="list-item">Only system designed to produce attribution outputs</div>
                     <div class="list-item">Evidence-first approach (every engagement generates auditable incident report)</div>
                     <div class="list-item">Safety-by-design (protected frequencies, collateral assessment)</div>
-                    <div class="list-item">Compliance-aligned from inception (spectrum safety, auditability, legal requirements)</div>
+                    <div class="list-item">Structured for compliance and evidence preservation</div>
                 </div>
             </div>
         </div>
 
-        <!-- SLIDE 4: HOW IT WORKS (REFINED - Refinement #4) -->
+        <!-- SLIDE 4: HOW IT WORKS -->
         <div class="slide">
             <h2>🎯 How It Works</h2>
             <div class="slide-content">
@@ -507,45 +502,38 @@
             </div>
         </div>
 
-        <!-- SLIDE 6: FORENSICS / EVIDENCE (REFINED - Refinement #3) -->
+        <!-- SLIDE 6: FORENSICS -->
         <div class="slide">
             <h2>📋 Demo + Forensics Evidence</h2>
             <div class="slide-content">
                 <h3 style="color: #ff6b00; margin-top: 20px; margin-bottom: 15px; font-size: 15px; font-weight: 600;">Live System Demonstrates</h3>
                 <div class="list-item" style="margin-bottom: 10px;">Multi-drone swarm simulation (up to 50 entities)</div>
-                <div class="list-item" style="margin-bottom: 10px;">Real-time threat scoring using weighted inputs (RF behavior, speed, proximity, swarm patterns)</div>
+                <div class="list-item" style="margin-bottom: 10px;">Real-time threat scoring using weighted inputs</div>
                 <div class="list-item">Selective mitigation logic with protected-band exclusions</div>
 
                 <h3 style="color: #00ff88; margin-top: 30px; margin-bottom: 15px; font-size: 15px; font-weight: 600;">Automated Incident Report Output</h3>
-                <p style="color: #cbd5e1; font-size: 14px; margin-bottom: 15px;">Each simulated engagement generates a structured report designed for government review, including:</p>
+                <p style="color: #cbd5e1; font-size: 14px; margin-bottom: 15px;">Each simulated engagement generates structured report:</p>
                 <div class="list-item" style="margin-bottom: 8px;">Total threats detected and mitigated</div>
                 <div class="list-item" style="margin-bottom: 8px;">Time-stamped event logs and latency metrics</div>
-                <div class="list-item" style="margin-bottom: 8px;">Attribution engine output (location estimate + confidence score)</div>
+                <div class="list-item" style="margin-bottom: 8px;">Attribution engine output (location estimate + confidence)</div>
                 <div class="list-item" style="margin-bottom: 8px;">Protected-band status and collateral assessment flags</div>
                 <div class="list-item">Full audit trail for post-incident review</div>
 
                 <div class="moat-box" style="margin-top: 25px;">
                     <strong>What This Proves</strong>
                     <p>End-to-end workflow exists (detect → assess → mitigate → report)</p>
-                    <p>Reporting format designed for government review and procurement documentation</p>
+                    <p>Reporting format designed for government review and procurement</p>
                     <p>System architecture supports auditability and evidence preservation</p>
                 </div>
 
                 <div class="moat-box">
                     <strong>Important Note</strong>
-                    <p>These outputs are designed for post-incident review and documentation. Final legal admissibility determined through third-party validation and procurement review process.</p>
-                </div>
-
-                <div class="moat-box">
-                    <strong>What Comes Next</strong>
-                    <p>Hardware-in-the-loop testing</p>
-                    <p>RF range / lab validation</p>
-                    <p>Third-party compliance and safety verification</p>
+                    <p>These outputs designed for post-incident review and documentation. Final legal admissibility determined through third-party validation and procurement review process.</p>
                 </div>
             </div>
         </div>
 
-        <!-- SLIDE 7: MARKET (REFINED - Refinement #1) -->
+        <!-- SLIDE 7: MARKET -->
         <div class="slide">
             <h2>💰 Market Opportunity</h2>
             <div class="slide-content">
@@ -556,35 +544,31 @@
                             <div class="metric-value">$1B+</div>
                             <div class="metric-label">Defense Counter-UAS 2025-2030</div>
                         </div>
-                        <div class="footnote">Based on DoD/DHS market assessments and defense contractor growth projections</div>
+                        <div class="footnote">Industry analyses + DoD budget trends</div>
                     </div>
 
                     <div>
                         <h3 style="color: #ff6b00; margin-bottom: 18px; font-size: 15px; font-weight: 600;">SAM (Serviceable)</h3>
                         <div class="metric">
                             <div class="metric-value">$250M–$500M</div>
-                            <div class="metric-label">U.S. Government Procurement Addressable</div>
+                            <div class="metric-label">U.S. Government Procurement (Army/DHS Focus)</div>
                         </div>
-                        <div class="footnote">Active Army/DHS procurement + first 3 years</div>
+                        <div class="footnote">First 3 years of active procurement phase</div>
                     </div>
                 </div>
 
-                <h3 style="color: #00ff88; margin-top: 35px; margin-bottom: 18px; font-size: 15px; font-weight: 600;">Customer Segments (Q1-Q4 2026 Target)</h3>
+                <h3 style="color: #00ff88; margin-top: 35px; margin-bottom: 18px; font-size: 15px; font-weight: 600;">Target Pilot Sites (2026)</h3>
                 <div class="stat-row">
-                    <span class="label">US Army (base defense)</span>
+                    <span class="label">Army bases (base defense)</span>
                     <span class="value">2–4 pilots</span>
                 </div>
                 <div class="stat-row">
-                    <span class="label">DHS (critical infrastructure)</span>
+                    <span class="label">DHS sites (critical infrastructure)</span>
                     <span class="value">1–2 pilots</span>
                 </div>
                 <div class="stat-row">
-                    <span class="label">Allied forces (NATO interest)</span>
-                    <span class="value">Future 2027</span>
-                </div>
-                <div class="stat-row">
-                    <span class="label">Private security (integration partners)</span>
-                    <span class="value">Post-MVP</span>
+                    <span class="label">Total Q4 2026 target</span>
+                    <span class="value">4–5 pilot deployments</span>
                 </div>
             </div>
         </div>
@@ -595,86 +579,113 @@
             <div class="slide-content">
                 <div class="moat-box">
                     <strong>1. Attribution-First Architecture</strong>
-                    <p>Most counter-UAS systems stop at detection or disruption. NSD is designed to produce attribution outputs — enabling law enforcement action, legal review, and post-incident accountability.</p>
+                    <p>Most counter-UAS systems stop at detection or disruption. NSD produces attribution outputs for law enforcement action and accountability.</p>
+                    <p style="font-size: 13px; color: #aaa; margin-top: 8px;"><strong>Validation Status:</strong> Simulation baseline operational • Field trials Q2 2026 • Third-party testing Q3 2026</p>
                 </div>
 
                 <div class="moat-box">
                     <strong>2. Evidence as a Product</strong>
-                    <p>NSD doesn't just act — it documents. Every engagement produces an exportable incident record, built for audits, after-action reports, and procurement review. Turns operations into reusable institutional knowledge.</p>
+                    <p>Every engagement produces exportable incident record. Built for audits, after-action reports, procurement review. Turns operations into institutional knowledge.</p>
                 </div>
 
                 <div class="moat-box">
                     <strong>3. Safety-First Mitigation Model</strong>
-                    <p>Protected-band policy enforced at the system level. Collateral assessment integrated into decision logic. Designed to operate in mixed civilian / critical-infrastructure environments.</p>
+                    <p>Protected-band policy enforced at system level. Collateral assessment integrated into decision logic. Designed for mixed civilian / critical-infrastructure environments.</p>
                 </div>
 
                 <div class="moat-box">
                     <strong>4. Software-First, Hardware-Agnostic</strong>
-                    <p>Core intelligence lives in software. Integrates with existing RF sensors and mitigation hardware. Faster deployment, lower cost, higher adaptability.</p>
+                    <p>Core intelligence in software. Integrates with existing RF sensors and mitigation hardware. Faster deployment, lower cost, higher adaptability.</p>
                 </div>
 
                 <div class="moat-box">
                     <strong>5. Defensible Growth Path</strong>
-                    <p>Data flywheel: every engagement improves models. Trade-secret algorithms + future IP filings. Clear path from pilot → deployment → scale.</p>
+                    <p>Data flywheel: every engagement improves models. Trade-secret algorithms + IP filings. Clear path from pilot → deployment → scale.</p>
                 </div>
             </div>
         </div>
 
-        <!-- SLIDE 9: BUSINESS MODEL (REFINED - Refinement #5) -->
+        <!-- SLIDE 9: BUSINESS MODEL -->
         <div class="slide">
-            <h2>💼 Business Model</h2>
+            <h2>💼 Business Model & Revenue Path</h2>
             <div class="slide-content">
-                <div class="grid-2">
-                    <div>
-                        <h3 style="color: #ff6b00; margin-bottom: 18px; font-size: 15px; font-weight: 600;">Deployment Options</h3>
-                        <div style="background: rgba(255, 107, 0, 0.1); padding: 16px; margin-bottom: 12px; border-radius: 5px;">
-                            <strong style="color: #ff6b00; font-size: 14px;">Cloud SaaS</strong>
-                            <p style="font-size: 12px; color: #aaa; margin-top: 6px;">Hosted dashboard + coordination</p>
-                            <p style="font-size: 16px; color: #ff6b00; margin-top: 6px; font-weight: 600;">$50K–$500K/year</p>
-                        </div>
-                        <div style="background: rgba(255, 107, 0, 0.1); padding: 16px; margin-bottom: 12px; border-radius: 5px;">
-                            <strong style="color: #ff6b00; font-size: 14px;">On-Premise Hardware</strong>
-                            <p style="font-size: 12px; color: #aaa; margin-top: 6px;">Integrated RF + standalone</p>
-                            <p style="font-size: 16px; color: #ff6b00; margin-top: 6px; font-weight: 600;">$250K–$1M</p>
-                        </div>
-                        <div style="background: rgba(255, 107, 0, 0.1); padding: 16px; border-radius: 5px;">
-                            <strong style="color: #ff6b00; font-size: 14px;">Mobile Command</strong>
-                            <p style="font-size: 12px; color: #aaa; margin-top: 6px;">Field-deployable + ops</p>
-                            <p style="font-size: 16px; color: #ff6b00; margin-top: 6px; font-weight: 600;">$500K–$2M</p>
-                        </div>
-                    </div>
+                <h3 style="color: #ff6b00; margin-bottom: 20px; font-size: 15px; font-weight: 600;">Year 1 Revenue (2026)</h3>
 
-                    <div>
-                        <h3 style="color: #00ff88; margin-bottom: 18px; font-size: 15px; font-weight: 600;">Revenue Math (2026 Target)</h3>
-                        <div class="revenue-example">
-                            <strong style="color: #00ff88;">Scenario 1: Army Pilot</strong><br>
-                            4 Army sites @ $300K/year = <strong>$1.2M ARR</strong>
-                        </div>
-                        <div class="revenue-example">
-                            <strong style="color: #00ff88;">Scenario 2: DHS Deployment</strong><br>
-                            2 DHS pilots @ $250K = <strong>$500K</strong> + recurring SaaS
-                        </div>
-                        <div class="revenue-example">
-                            <strong style="color: #00ff88;">Combined Path</strong><br>
-                            4–5 beta sites (Army/DHS) @ avg $300K = <strong>$1.5M first-year revenue</strong><br>
-                            Recurring SaaS + hardware placement = <strong>$2M–$3M ARR by Q4 2026</strong>
-                        </div>
+                <div class="revenue-example">
+                    <strong style="color: #00ff88;">Scenario A: Optimistic</strong><br>
+                    • 3 Army bases @ $400K each = $1.2M<br>
+                    • 2 DHS sites @ $350K each = $700K<br>
+                    <strong style="color: #00ff88;">Subtotal: $1.9M in pilot commitments</strong>
+                </div>
 
-                        <h3 style="color: #ff6b00; margin-top: 25px; margin-bottom: 15px; font-size: 15px; font-weight: 600;">Series A Vision (2027)</h3>
-                        <div class="stat-row">
-                            <span class="label">$5M Series A</span>
-                            <span class="value">10–15 customers</span>
-                        </div>
-                        <div class="stat-row">
-                            <span class="label">ARR by 2027</span>
-                            <span class="value">$10M–$15M</span>
-                        </div>
+                <div class="revenue-example">
+                    <strong style="color: #00ff88;">Scenario B: Conservative</strong><br>
+                    • 2 Army sites @ $300K = $600K<br>
+                    • 1 DHS pilot @ $300K = $300K<br>
+                    <strong style="color: #00ff88;">Subtotal: $900K (still material)</strong>
+                </div>
+
+                <h3 style="color: #ff6b00; margin-top: 25px; margin-bottom: 15px; font-size: 15px; font-weight: 600;">Year 2+ ARR Path (2027)</h3>
+
+                <div class="revenue-example">
+                    <strong style="color: #00ff88;">Year 2 ARR (2027):</strong><br>
+                    • 10 active sites (3-year deployments) @ $250K/year = $2.5M<br>
+                    • SaaS management platform @ $50K/year = $500K<br>
+                    <strong style="color: #00ff88;">Total: $3M ARR by Q2 2027</strong>
+                </div>
+
+                <div class="revenue-example">
+                    <strong style="color: #00ff88;">Series A Target:</strong><br>
+                    • Add 10 more sites in Year 2 = additional $2.5M<br>
+                    • Existing 10 sites generate full $2.5M (SaaS mature)<br>
+                    <strong style="color: #00ff88;">Total: $5M+ ARR by Q4 2027</strong>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 10: WHAT YOU'RE BUYING INTO (NEW) -->
+        <div class="slide">
+            <h2>💎 What You're Buying Into</h2>
+            <div class="slide-content">
+                <p style="font-size: 14px; color: #aaa; margin-bottom: 30px;">Three concrete value propositions for this seed round:</p>
+
+                <div class="value-prop-box">
+                    <h3>1. Evidence-Anchored Technology</h3>
+                    <div class="sub-item">• Live simulation MVP demonstrates end-to-end workflow</div>
+                    <div class="sub-item">• Forensics output designed for government review</div>
+                    <div class="sub-item">• Clear field validation roadmap (Q1-Q4 2026)</div>
+                    <p style="color: #00ff88; font-size: 13px; margin-top: 10px;"><strong>→ You're funding proven concept with executable path</strong></p>
+                </div>
+
+                <div class="value-prop-box">
+                    <h3>2. Compliance-by-Design Architecture</h3>
+                    <div class="sub-item">• Spectrum safety and auditability engineered at system level</div>
+                    <div class="sub-item">• Protected-band enforcement built in</div>
+                    <div class="sub-item">• Structured for government procurement + validation</div>
+                    <p style="color: #00ff88; font-size: 13px; margin-top: 10px;"><strong>→ You're reducing diligence risk through design choices</strong></p>
+                </div>
+
+                <div class="value-prop-box">
+                    <h3>3. Monetizable Defense Procurement Path</h3>
+                    <div class="sub-item">• 4–5 pilot sites identified (Army/DHS conversations ongoing)</div>
+                    <div class="sub-item">• Unit economics: $250K–$400K per deployment</div>
+                    <div class="sub-item">• $1.5M–$2M first-year revenue target realistic</div>
+                    <p style="color: #00ff88; font-size: 13px; margin-top: 10px;"><strong>→ You're funding path to actual customer revenue</strong></p>
+                </div>
+
+                <div style="margin-top: 30px; padding: 18px; background: rgba(100, 200, 255, 0.08); border-left: 4px solid #64c8ff; border-radius: 4px;">
+                    <p style="color: #64c8ff; font-size: 14px; font-weight: 600; margin-bottom: 10px;">Outcome of This Seed:</p>
+                    <div style="color: #cbd5e1; font-size: 13px; line-height: 1.8;">
+                        ✓ CTO hired + hardware prototype operational<br>
+                        ✓ 2–3 beta pilots deployed and documented<br>
+                        ✓ Series A positioning: $5M–$10M ARR pathway visible<br>
+                        ✓ Timeline: Q1 close → Q2 pilots → Q4 2026 Series A ready
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- SLIDE 10: THE ASK -->
+        <!-- SLIDE 11: THE ASK -->
         <div class="slide">
             <h2>🎯 The Ask</h2>
             <div class="slide-content">
@@ -688,7 +699,7 @@
                 <div class="grid-3">
                     <div style="background: rgba(0, 255, 136, 0.08); padding: 20px; border-radius: 6px; border: 1px solid rgba(0, 255, 136, 0.3);">
                         <h3 style="color: #00ff88; margin-bottom: 12px; font-size: 14px; font-weight: 600;">Use of Funds</h3>
-                        <div class="list-item" style="font-size: 13px; margin-bottom: 8px;">Technical cofounder/CTO hire ($150K)</div>
+                        <div class="list-item" style="font-size: 13px; margin-bottom: 8px;">Technical cofounder/CTO ($150K)</div>
                         <div class="list-item" style="font-size: 13px; margin-bottom: 8px;">Hardware prototype ($200K)</div>
                         <div class="list-item" style="font-size: 13px;">First 3 gov pilots ($300K)</div>
                     </div>
@@ -715,7 +726,7 @@
             </div>
         </div>
 
-        <!-- SLIDE 11: TEAM (REFINED - Refinement #6) -->
+        <!-- SLIDE 12: TEAM -->
         <div class="slide">
             <h2>👥 Team & Hiring</h2>
             <div class="slide-content">
@@ -725,7 +736,7 @@
                         <div style="background: rgba(255, 107, 0, 0.1); padding: 16px; border-radius: 6px;">
                             <strong style="color: #ff6b00;">Daivon Brown</strong>
                             <p style="color: #aaa; font-size: 13px; margin-top: 4px;">Founder/CEO</p>
-                            <p style="font-size: 12px; color: #999; margin-top: 4px;">Defense tech product leadership. Domain expertise in RF-based counter-UAS systems and government procurement.</p>
+                            <p style="font-size: 12px; color: #999; margin-top: 4px;">Counter-UAS domain expert with operational insight and product execution focus. Architect of government procurement strategy. Full-time execution lead on prototype and pilot phases.</p>
                         </div>
                     </div>
 
@@ -733,8 +744,9 @@
                         <h3 style="color: #00ff88; margin-bottom: 18px; font-size: 15px; font-weight: 600;">Critical Technical Hire</h3>
                         <div style="background: rgba(0, 255, 136, 0.1); padding: 16px; border-radius: 6px;">
                             <strong style="color: #00ff88;">CTO / Technical Cofounder</strong>
-                            <p style="color: #aaa; font-size: 13px; margin-top: 4px;">Lead architecture, hardware integration, field validation</p>
-                            <p style="font-size: 12px; color: #999; margin-top: 4px;">RF/hardware background + government sales experience. Equity: 15–20%</p>
+                            <p style="color: #aaa; font-size: 13px; margin-top: 4px;">Hardware integration specialist. RF systems background. Government contracting experience.</p>
+                            <p style="font-size: 12px; color: #999; margin-top: 4px;"><strong>Start date:</strong> Q1 2026 (concurrent with seed close)</p>
+                            <p style="font-size: 12px; color: #999; margin-top: 4px;"><strong>Equity:</strong> 15–20% | <strong>Focus:</strong> Hardware MVP + pilot integration</p>
                         </div>
                     </div>
                 </div>
@@ -749,7 +761,7 @@
             </div>
         </div>
 
-        <!-- SLIDE 12: VALIDATION ROADMAP -->
+        <!-- SLIDE 13: VALIDATION ROADMAP -->
         <div class="slide">
             <h2>✅ Validation & Testing Roadmap</h2>
             <div class="slide-content">
@@ -757,7 +769,7 @@
 
                 <div style="background: rgba(255, 107, 0, 0.08); padding: 18px; margin-bottom: 15px; border-left: 4px solid #ff6b00; border-radius: 4px;">
                     <strong style="color: #ff6b00; font-size: 14px;">Q1 2026: Lab Baseline</strong>
-                    <p style="color: #cbd5e1; font-size: 13px; margin-top: 8px; margin-left: 20px;">RF signal validation in controlled environment • Algorithm performance benchmarking • Safety/compliance verification (protected bands)</p>
+                    <p style="color: #cbd5e1; font-size: 13px; margin-top: 8px; margin-left: 20px;">RF signal validation in controlled environment • Algorithm performance benchmarking • Safety/compliance verification</p>
                 </div>
 
                 <div style="background: rgba(0, 255, 136, 0.08); padding: 18px; margin-bottom: 15px; border-left: 4px solid #00ff88; border-radius: 4px;">
@@ -782,7 +794,7 @@
             </div>
         </div>
 
-        <!-- SLIDE 13: MILESTONES -->
+        <!-- SLIDE 14: MILESTONES -->
         <div class="slide">
             <h2>🚀 12-Month Execution Plan</h2>
             <div class="slide-content">
@@ -824,7 +836,7 @@
             </div>
         </div>
 
-        <!-- SLIDE 14: CLOSING -->
+        <!-- SLIDE 15: CLOSING -->
         <div class="slide slide-title">
             <h1 style="color: #00ff88; margin-bottom: 35px;">Thank You</h1>
             <div style="font-size: 20px; color: #ff6b00; font-style: italic; margin-bottom: 80px;">
@@ -836,8 +848,8 @@
                     Founder/CEO, ChaosTech Defense LLC
                 </div>
                 <div style="margin-bottom: 25px;">
-                    <strong>📧 Contact:</strong> DaivonBrown@chaostechDefenseLLC.com<br>
-                    <strong>📱 Phone:</strong> (202) 830-6292<br>
+                    <strong>📧 Contact:</strong> DaivonBrown@chaostechdefense.com<br>
+                    <strong>📱 Phone:</strong> (202)830-6292<br>
                     <strong>🌐 Demo:</strong> github.com/ChaosTechHQ/nsd-demo
                 </div>
                 <div style="margin-top: 60px; font-size: 14px; color: #aaa;">
@@ -849,7 +861,7 @@
     </div>
 
     <div class="slide-counter">
-        <span id="current">1</span> / <span id="total">14</span>
+        <span id="current">1</span> / <span id="total">15</span>
     </div>
 
     <div class="controls">
