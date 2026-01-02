@@ -26,7 +26,7 @@
 ## 🚀 Quick Start
 
 ### Live Demo
-**[View Live Demo](https://yourusername.github.io/nsd-demo)** ← Update this URL
+**[View Live Demo](https://chaostechhq.github.io/nsd-demo/)
 
 ### Local Setup (2 minutes)
 
@@ -230,7 +230,7 @@ confidence = 85-100% based on signal quality
 **Email:** DaivonBrown@ChaosTechDefenseLLC.com  
 **Phone:** (202) 830-6292  
 **Company:** ChaosTech Defense LLC  
-**Location:** Camp Springs, Maryland
+**Location:** Suitland, Maryland
 
 **Seeking:** $500K-1M seed funding for:
 - Technical cofounder/CTO
