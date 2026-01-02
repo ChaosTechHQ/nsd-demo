@@ -32,7 +32,7 @@
 
 ```bash
 # 1. Clone repo
-git clone https://github.com/yourusername/nsd-demo.git
+git clone https://github.com/ChaosTechHQ/nsd-demo.git
 cd nsd-demo
 
 # 2. Open in browser
